@@ -1,0 +1,73 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  lang: 'zh-CN' | 'en' | 'zh-TW';
+  title: string;
+  description: string;
+  path: string;
+}
+
+const { lang, title, description, path } = Astro.props;
+
+// Basic link helper
+const getPath = (targetPath: string, targetLang: string) => {
+  if (targetLang === 'zh-CN') return targetPath;
+  return `/${targetLang}${targetPath}`;
+};
+---
+
+<!DOCTYPE html>
+<html lang={lang} class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title} · ZJUAANC</title>
+  <meta name="description" content={description} />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<body class="bg-slate-950 text-slate-200 font-sans min-h-screen flex flex-col antialiased">
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-lg border-b border-slate-900/80">
+    <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href={getPath('/', lang)} class="flex items-center gap-2">
+        <span class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center font-bold text-white shadow-lg">浙</span>
+        <div class="flex flex-col">
+          <span class="font-bold text-sm tracking-tight text-white leading-none">ZJUAANC</span>
+          <span class="text-[10px] text-slate-500 mt-1">浙江大学北美校友会北卡分会</span>
+        </div>
+      </a>
+      
+      <!-- Language Switcher -->
+      <div class="flex items-center bg-slate-900 rounded-full p-0.5 text-xs font-semibold">
+        <a href="/" class={`px-3 py-1 rounded-full transition-colors ${lang === 'zh-CN' ? 'bg-slate-800 text-white' : 'text-slate-500 hover:text-slate-300'}`}>简</a>
+        <a href="/zh-TW" class={`px-3 py-1 rounded-full transition-colors ${lang === 'zh-TW' ? 'bg-slate-800 text-white' : 'text-slate-500 hover:text-slate-300'}`}>繁</a>
+        <a href="/en" class={`px-3 py-1 rounded-full transition-colors ${lang === 'en' ? 'bg-slate-800 text-white' : 'text-slate-500 hover:text-slate-300'}`}>EN</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="flex-grow pt-24 pb-16">
+    <slot />
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-950 border-t border-slate-900 py-10">
+    <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6 text-slate-500 text-xs">
+      <div>
+        <p>© 2026 ZJUAANC. All rights reserved.</p>
+        <p class="mt-1">浙江大学北美校友会北卡分会（总部）旗下联络站</p>
+      </div>
+      <div class="flex gap-x-6 text-slate-400">
+        <a href="https://zjuaanc.org" target="_blank" class="hover:text-white transition-colors">校友会总部官网</a>
+        <a href="https://zju.fyi" target="_blank" class="hover:text-white transition-colors">ZJU.fyi</a>
+        <a href="https://viaiforgood.org" target="_blank" class="hover:text-white transition-colors">VI AI for Good Foundation</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
