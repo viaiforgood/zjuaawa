@@ -38,16 +38,16 @@ const getPath = (targetPath: string, targetLang: string) => {
       <a href={getPath('/', lang)} class="flex items-center gap-2">
         <img src="/icons/icon-192.png" alt="ZJUAANC" class="w-8 h-8 rounded-lg object-cover" />
         <div class="flex flex-col">
-          <span class="font-bold text-sm tracking-tight text-white leading-none">ZJUAANC</span>
+          <span class="font-bold text-sm tracking-tight text-slate-200 leading-none">ZJUAANC</span>
           <span class="text-[10px] text-slate-500 mt-1">北卡浙大校友会</span>
         </div>
       </a>
       
       <!-- Language Switcher -->
       <div class="flex items-center bg-slate-900 rounded-full p-0.5 text-xs font-semibold">
-        <a href="/" class={`px-3 py-1 rounded-full transition-colors ${lang === 'zh-CN' ? 'bg-slate-800 text-white' : 'text-slate-500 hover:text-slate-300'}`}>简</a>
-        <a href="/zh-TW" class={`px-3 py-1 rounded-full transition-colors ${lang === 'zh-TW' ? 'bg-slate-800 text-white' : 'text-slate-500 hover:text-slate-300'}`}>繁</a>
-        <a href="/en" class={`px-3 py-1 rounded-full transition-colors ${lang === 'en' ? 'bg-slate-800 text-white' : 'text-slate-500 hover:text-slate-300'}`}>EN</a>
+        <a href="/" class={`px-3 py-1 rounded-full transition-colors ${lang === 'zh-CN' ? 'bg-slate-800 text-slate-200' : 'text-slate-500 hover:text-slate-300'}`}>简</a>
+        <a href="/zh-TW" class={`px-3 py-1 rounded-full transition-colors ${lang === 'zh-TW' ? 'bg-slate-800 text-slate-200' : 'text-slate-500 hover:text-slate-300'}`}>繁</a>
+        <a href="/en" class={`px-3 py-1 rounded-full transition-colors ${lang === 'en' ? 'bg-slate-800 text-slate-200' : 'text-slate-500 hover:text-slate-300'}`}>EN</a>
       </div>
     </div>
   </nav>
@@ -65,9 +65,9 @@ const getPath = (targetPath: string, targetLang: string) => {
         <p class="mt-1">北卡浙大校友会（总部）旗下联络站</p>
       </div>
       <div class="flex gap-x-6 text-slate-400">
-        <a href="https://zjuaanc.org" target="_blank" class="hover:text-white transition-colors">校友会总部官网</a>
-        <a href="https://zju.fyi" target="_blank" class="hover:text-white transition-colors">ZJU.fyi</a>
-        <a href="https://viaiforgood.org" target="_blank" class="hover:text-white transition-colors">VI AI for Good Foundation</a>
+        <a href="https://zjuaanc.org" target="_blank" class="hover:text-blue-600 transition-colors">校友会总部官网</a>
+        <a href="https://zju.fyi" target="_blank" class="hover:text-blue-600 transition-colors">ZJU.fyi</a>
+        <a href="https://viaiforgood.org" target="_blank" class="hover:text-blue-600 transition-colors">VI AI for Good Foundation</a>
       </div>
     </div>
   </footer>
